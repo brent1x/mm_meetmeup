@@ -16,6 +16,7 @@
 		841A4FF91B15123D00FE5035 /* MeetMeUpTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 841A4FF81B15123D00FE5035 /* MeetMeUpTests.m */; };
 		841A50041B153AFE00FE5035 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 841A50031B153AFE00FE5035 /* Event.m */; };
 		841A50071B153E3800FE5035 /* DestinationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 841A50061B153E3800FE5035 /* DestinationViewController.m */; };
+		841A500A1B1569A900FE5035 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 841A50091B1569A900FE5035 /* WebViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,8 @@
 		841A50031B153AFE00FE5035 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 		841A50051B153E3800FE5035 /* DestinationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DestinationViewController.h; sourceTree = "<group>"; };
 		841A50061B153E3800FE5035 /* DestinationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DestinationViewController.m; sourceTree = "<group>"; };
+		841A50081B1569A900FE5035 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		841A50091B1569A900FE5035 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +97,8 @@
 				841A50021B153AFE00FE5035 /* Event.h */,
 				841A50031B153AFE00FE5035 /* Event.m */,
 				841A4FE61B15123D00FE5035 /* Main.storyboard */,
+				841A50081B1569A900FE5035 /* WebViewController.h */,
+				841A50091B1569A900FE5035 /* WebViewController.m */,
 				841A50051B153E3800FE5035 /* DestinationViewController.h */,
 				841A50061B153E3800FE5035 /* DestinationViewController.m */,
 				841A4FE91B15123D00FE5035 /* Images.xcassets */,
@@ -230,6 +235,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				841A50041B153AFE00FE5035 /* Event.m in Sources */,
+				841A500A1B1569A900FE5035 /* WebViewController.m in Sources */,
 				841A50071B153E3800FE5035 /* DestinationViewController.m in Sources */,
 				841A4FE51B15123D00FE5035 /* MeetupViewController.m in Sources */,
 				841A4FE21B15123D00FE5035 /* AppDelegate.m in Sources */,

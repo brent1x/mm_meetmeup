@@ -1,10 +1,3 @@
-//
-//  DestinationViewController.m
-//  MeetMeUp
-//
-//  Created by Brent Dady on 5/26/15.
-//  Copyright (c) 2015 Brent Dady. All rights reserved.
-//
 
 #import "DestinationViewController.h"
 
@@ -28,6 +21,12 @@
     self.eventDescription.text = self.event.eventDescription;
     self.url.text = self.event.url;
 
+}
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(UILabel *)sender {
+    Event *event = self.event;
+    DestinationViewController *destVC = segue.destinationViewController;
+    destVC.event = event;
 }
 
 @end
