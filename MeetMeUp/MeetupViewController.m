@@ -1,10 +1,13 @@
 
 #import "MeetupViewController.h"
+#import "Event.h"
+#import "DestinationViewController.h"
 
 @interface MeetupViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property NSDictionary *events;
 @property NSArray *results;
+@property NSMutableArray *arrayOfEvents;
 
 @end
 
@@ -15,14 +18,28 @@
 
     self.events = [NSDictionary new];
     self.results = [NSArray new];
+    self.arrayOfEvents = [NSMutableArray new];
 
     NSURL *url = [NSURL URLWithString:@"https://api.meetup.com/2/open_events.json?zip=91404&text=mobile&time=,1w&key=202319351e53624c24b661e3f521916"];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         self.events = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
         self.results = [self.events objectForKey:@"results"];
+
+        for (NSDictionary *dictionaryToPass in self.results) {
+            NSString *name = [dictionaryToPass objectForKey:@"name"];
+            NSNumber *rsvpCount = [dictionaryToPass objectForKey:@"yes_rsvp_count"];
+            NSDictionary *hostGroupInfo = [dictionaryToPass objectForKey:@"group"];
+            NSString *eventDescription = [dictionaryToPass objectForKey:@"description"];
+            NSString *url = [dictionaryToPass objectForKey:@"event_url"];
+            Event *event = [[Event alloc] initWithName:name rsvp:rsvpCount host:hostGroupInfo description:eventDescription url:url];
+            [self.arrayOfEvents addObject:event];
+        }
+
         [self.tableView reloadData];
     }];
+
+
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -41,6 +58,13 @@
     cell.detailTextLabel.text = [individualResultLocation objectForKey:@"address_1"];
 
     return cell;
+}
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    Event *event = [self.arrayOfEvents objectAtIndex:indexPath.row];
+    DestinationViewController *destVC = segue.destinationViewController;
+    destVC.event = event;
 }
 
 @end

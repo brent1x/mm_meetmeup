@@ -14,6 +14,8 @@
 		841A4FEA1B15123D00FE5035 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 841A4FE91B15123D00FE5035 /* Images.xcassets */; };
 		841A4FED1B15123D00FE5035 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 841A4FEB1B15123D00FE5035 /* LaunchScreen.xib */; };
 		841A4FF91B15123D00FE5035 /* MeetMeUpTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 841A4FF81B15123D00FE5035 /* MeetMeUpTests.m */; };
+		841A50041B153AFE00FE5035 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 841A50031B153AFE00FE5035 /* Event.m */; };
+		841A50071B153E3800FE5035 /* DestinationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 841A50061B153E3800FE5035 /* DestinationViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,10 @@
 		841A4FF21B15123D00FE5035 /* MeetMeUpTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeetMeUpTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		841A4FF71B15123D00FE5035 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		841A4FF81B15123D00FE5035 /* MeetMeUpTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeetMeUpTests.m; sourceTree = "<group>"; };
+		841A50021B153AFE00FE5035 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		841A50031B153AFE00FE5035 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
+		841A50051B153E3800FE5035 /* DestinationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DestinationViewController.h; sourceTree = "<group>"; };
+		841A50061B153E3800FE5035 /* DestinationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DestinationViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +91,11 @@
 				841A4FE11B15123D00FE5035 /* AppDelegate.m */,
 				841A4FE31B15123D00FE5035 /* MeetupViewController.h */,
 				841A4FE41B15123D00FE5035 /* MeetupViewController.m */,
+				841A50021B153AFE00FE5035 /* Event.h */,
+				841A50031B153AFE00FE5035 /* Event.m */,
 				841A4FE61B15123D00FE5035 /* Main.storyboard */,
+				841A50051B153E3800FE5035 /* DestinationViewController.h */,
+				841A50061B153E3800FE5035 /* DestinationViewController.m */,
 				841A4FE91B15123D00FE5035 /* Images.xcassets */,
 				841A4FEB1B15123D00FE5035 /* LaunchScreen.xib */,
 				841A4FDC1B15123C00FE5035 /* Supporting Files */,
@@ -219,6 +229,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				841A50041B153AFE00FE5035 /* Event.m in Sources */,
+				841A50071B153E3800FE5035 /* DestinationViewController.m in Sources */,
 				841A4FE51B15123D00FE5035 /* MeetupViewController.m in Sources */,
 				841A4FE21B15123D00FE5035 /* AppDelegate.m in Sources */,
 				841A4FDF1B15123C00FE5035 /* main.m in Sources */,
