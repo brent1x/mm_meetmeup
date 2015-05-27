@@ -3,15 +3,19 @@
 #import "Event.h"
 #import "DestinationViewController.h"
 
-@interface MeetupViewController () <UITableViewDelegate, UITableViewDataSource>
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@interface MeetupViewController () <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchDisplayDelegate>
 @property NSDictionary *events;
 @property NSArray *results;
+@property NSMutableArray *filteredResults;
 @property NSMutableArray *arrayOfEvents;
+@property (weak, nonatomic) IBOutlet UITableView *searchBar;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
 @implementation MeetupViewController
+
+#pragma mark // VDL INCLUDING NETWORK CALLS
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -25,6 +29,7 @@
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         self.events = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
         self.results = [self.events objectForKey:@"results"];
+        self.filteredResults = [NSMutableArray arrayWithCapacity:[self.results count]];
 
         for (NSDictionary *dictionaryToPass in self.results) {
             NSString *name = [dictionaryToPass objectForKey:@"name"];
@@ -38,9 +43,9 @@
 
         [self.tableView reloadData];
     }];
-
-
 }
+
+#pragma mark // TABLE VIEW METHODS
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.results.count;
@@ -60,11 +65,27 @@
     return cell;
 }
 
-- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+#pragma mark // PREPARE FOR SEGUE METHOD
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
     Event *event = [self.arrayOfEvents objectAtIndex:indexPath.row];
     DestinationViewController *destVC = segue.destinationViewController;
     destVC.event = event;
 }
 
+#pragma mark // SEARCH BAR METHODS
+
+- (void)filterContentForSearchText:(NSString *)searchText scope:(NSString *)scope {
+    [self.filteredResults removeAllObjects];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.name contains[c] %@", searchText];
+    self.filteredResults = [NSMutableArray arrayWithArray:[self.results filteredArrayUsingPredicate:predicate]];
+}
+
 @end
+
+
+
+
+
+
